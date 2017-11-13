@@ -6,7 +6,7 @@
         <bottom-drawer *ngIf="drawerLocation == 'Bottom'"></bottom-drawer>
         <Label text="Close Drawer" color="lightgray" padding="10" style="horizontal-align: center" (tap)="closeDrawer()"></Label>
     </StackLayout>
-    <StackLayout tkMainContent>
+    <StackLayout (swipe)="onSwipe($event)" tkMainContent>
         <Button text="Left" (tap)="openDrawer('Left')"></Button>
         <Button text="Right" (tap)="openDrawer('Right')"></Button>
         <Button text="Top" (tap)="openDrawer('Top')"></Button>

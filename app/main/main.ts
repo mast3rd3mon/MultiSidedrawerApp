@@ -1,6 +1,7 @@
 import { Component, ViewChild, AfterViewInit } from "@angular/core";
 import { RadSideDrawerComponent } from "nativescript-pro-ui/sidedrawer/angular";
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
+import { SwipeGestureEventData } from "tns-core-modules/ui/gestures";
 
 @Component({
     moduleId: module.id,
@@ -13,10 +14,20 @@ export class MainComponent implements AfterViewInit {
     drawerLocation: string = "Left";
 
     constructor() {
-        console.log("Test")
     }
     ngAfterViewInit() {
         this.drawer = this.drawerComponent.sideDrawer;
+    }
+    onSwipe(args: SwipeGestureEventData) {
+        if (args.direction == 1) {
+            this.openDrawer("Left");
+        } else if (args.direction == 2) {
+            this.openDrawer("Right");
+        } else if (args.direction == 4) {
+            this.openDrawer("Bottom");
+        } else if (args.direction == 8) {
+            this.openDrawer("Top");
+        }
     }
     openDrawer(position) {
         this.drawerLocation = position;
