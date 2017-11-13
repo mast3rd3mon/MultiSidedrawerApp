@@ -1,0 +1,16 @@
+<RadSideDrawer [drawerLocation]="drawerLocation" gesturesEnabled="false" tkExampleTitle tkToggleNavButton>
+    <StackLayout tkDrawerContent>
+        <left-drawer *ngIf="drawerLocation == 'Left'"></left-drawer>
+        <right-drawer *ngIf="drawerLocation == 'Right'"></right-drawer>
+        <top-drawer *ngIf="drawerLocation == 'Top'"></top-drawer>
+        <bottom-drawer *ngIf="drawerLocation == 'Bottom'"></bottom-drawer>
+        <Label text="Close Drawer" color="lightgray" padding="10" style="horizontal-align: center" (tap)="closeDrawer()"></Label>
+    </StackLayout>
+    <StackLayout tkMainContent>
+        <Button text="Left" (tap)="openDrawer('Left')"></Button>
+        <Button text="Right" (tap)="openDrawer('Right')"></Button>
+        <Button text="Top" (tap)="openDrawer('Top')"></Button>
+        <Button text="Bottom" (tap)="openDrawer('Bottom')"></Button>
+        <!--Your code here -->
+    </StackLayout>
+</RadSideDrawer>
